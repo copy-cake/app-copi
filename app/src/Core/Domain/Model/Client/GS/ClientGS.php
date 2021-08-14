@@ -6,6 +6,7 @@ namespace App\Core\Domain\Model\Client\GS;
 
 use App\Core\Domain\Model\Users\User;
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 
 trait ClientGS
 {
@@ -82,9 +83,9 @@ trait ClientGS
     }
 
     /**
-     * @return ArrayCollection
+     * @return Collection
      */
-    public function getTask(): ArrayCollection
+    public function getTask(): Collection
     {
         return $this->task;
     }

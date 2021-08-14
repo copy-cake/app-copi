@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <style>
+        body{
+            font-family: Arial;
+        }
+        .border-right{
+            border-right: 1px solid black;
+        }
+        .border-td{
+            border-top: 1px solid black;
+            border-right: 1px solid black;
+        }
+        .last-td{
+            border-top: 1px solid black;
+        }
+    </style>
+
+</head>
+<body>
+
+    <table style="width: 100%">
+        <thead>
+            <tr>
+                <td style="text-align: left; font-size: 0.8em">
+                    Wykonawca <br>
+                    {{ user.firstName }} {{ user.lastName }}<br>
+                    ul. Gombrowicza 37/22<br>
+                    59-220 Legnica
+
+                </td>
+                <td style="text-align: right; font-size: 0.8em">
+                  Data uwtorzenia: {{ createAt | date('Y-m-d') }}
+                </td>
+            </tr>
+            <tr style="height: 10mm"></tr>
+            <tr>
+                <td style="font-size: 0.8em"><br>
+                    Klient<br>
+                    {{ client.name }}<br>
+                    {{ client.street }}<br>
+                    {{ client.zipCode }} {{ client.city }}<br>
+                </td>
+            </tr>
+            <tr>
+                <td><br><br>
+                    RAPORT: od 01.{{ createAt | date('m-Y') }} do {{ lastDayMonth }}.{{ createAt | date('m-Y') }}
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+
+                    <table style="border: 1px solid black; width: 100%; font-size: 0.8em">
+                        <thead>
+                            <tr style="font-weight: bold;">
+                                <th class="border-right" style="text-align: left;">Lp.</th>
+                                <th class="border-right" style="text-align: left;">Nazwa</th>
+                                <th class="border-right" style="text-align: left;">Liczba ZZS</th>
+                                <th class="border-right" style="text-align: left;">Cena za 1000 zzs {{ typeGross }}</th>
+                                <th style="text-align: left;">Wartość {{ typeGross }}</th>
+                            </tr>
+                        </thead>
+                        <tbody style="border: 1px solid black; width: 100%;">
+                            {% for key,row in tasks %}
+                                <tr style="border: 1px solid black; width: 100%;">
+                                    <td class="border-td">{{ key+1 }}</td>
+                                    <td class="border-td">{{ row.titleTask }}</td>
+                                    <td class="border-td">{{ row.numberCountCharacter }}</td>
+                                    <td class="border-td">{{ client.salary }} zł</td>
+                                    <td class="last-td"> <b style="color: #00ACA9">{{ row.walletTask.money | replace({'.': ','}) }} zł</b></td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+
+                </td>
+            </tr>
+
+            <tr></tr>
+            <tr>
+                <td style="font-size: 1.2em"><br>
+                    <b style="color: #00ACA9">RAZEM: {{ sumPayout | replace({'.': ','}) }} zł</b>
+                </td>
+            </tr>
+            <tr>
+                <td style="font-size: 1.0em">
+                    <br>
+                    Bank: {{ user.wallet.bankName }}<br>
+                    Numer konta: {{ user.wallet.bankNumber }}
+                </td>
+            </tr>
+
+        </thead>
+    </table>
+
+</body>
+</html>

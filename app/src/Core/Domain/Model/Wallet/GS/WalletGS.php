@@ -48,4 +48,20 @@ trait WalletGS
     {
         return $this->walletControl;
     }
+
+    /**
+     * @return string|null
+     */
+    public function getBankName(): ?string
+    {
+        return $this->bankName;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getBankNumber(): ?string
+    {
+        return $this->bankNumber;
+    }
 }

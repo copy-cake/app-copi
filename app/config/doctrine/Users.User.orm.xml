@@ -37,14 +37,6 @@
         </many-to-many>
 
 
-        <one-to-many field="files" target-entity="App\Core\Domain\Model\File\Files" mapped-by="users">
-            <cascade>
-                <cascade-remove/>
-                <cascade-persist/>
-            </cascade>
-        </one-to-many>
-
-
         <one-to-one field="wallet" target-entity="App\Core\Domain\Model\Wallet\Wallet" orphan-removal="true" fetch="LAZY">
             <join-column name="wallet_id"/>
             <cascade>

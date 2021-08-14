@@ -9,6 +9,7 @@ use App\Core\Domain\Model\File\Files;
 use App\Core\Domain\Model\Task\TaskDate;
 use App\Core\Domain\Model\TypeText\TypeText;
 use App\Core\Domain\Model\Users\User;
+use App\Core\Domain\Model\Wallet\WalletTask;
 use Doctrine\Common\Collections\Collection;
 
 trait TaskGS
@@ -54,9 +55,9 @@ trait TaskGS
     }
 
     /**
-     * @return TypeText
+     * @return TypeText|null
      */
-    public function getTypeText(): TypeText
+    public function getTypeText(): ?TypeText
     {
         return $this->typeText;
     }
@@ -72,23 +73,7 @@ trait TaskGS
     /**
      * @return User
      */
-    public function getCopywriter(): User
-    {
-        return $this->copywriter;
-    }
-
-    /**
-     * @return float
-     */
-    public function getSalary(): float
-    {
-        return $this->salary;
-    }
-
-    /**
-     * @return Collection|null
-     */
-    public function getUsers(): ?Collection
+    public function getUsers(): User
     {
         return $this->users;
     }
@@ -99,5 +84,13 @@ trait TaskGS
     public function getFiles(): Files
     {
         return $this->files;
+    }
+
+    /**
+     * @return WalletTask
+     */
+    public function getWalletTask(): WalletTask
+    {
+        return $this->walletTask;
     }
 }

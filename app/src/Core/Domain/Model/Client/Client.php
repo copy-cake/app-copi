@@ -8,6 +8,7 @@ use App\Core\Application\Command\Client\CreateClientDTO;
 use App\Core\Domain\Model\Client\GS\ClientGS;
 use App\Core\Domain\Model\Users\User;
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 
 class Client
 {
@@ -40,7 +41,7 @@ class Client
     /** @var User */
     private $user;
 
-    /** @var ArrayCollection */
+    /** @var Collection */
     private $task;
 
     /** @var float */ /*the rate for the task. Put in only netto*/

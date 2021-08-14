@@ -14,12 +14,6 @@
         <field name="typeExt" type="string" column="type_ext" nullable="false"/>
         <field name="createdAt" type="datetime" column="created_At" nullable="false"/>
 
-        <many-to-one field="users" target-entity="App\Core\Domain\Model\Users\User" inversed-by="files">
-            <join-columns>
-                <join-column name="user_id" referenced-column-name="id"/>
-            </join-columns>
-        </many-to-one>
-
         <many-to-one field="task" target-entity="App\Core\Domain\Model\Task\Task" inversed-by="files">
             <join-columns>
                 <join-column name="task_id" referenced-column-name="id"/>

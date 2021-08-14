@@ -5,6 +5,7 @@ namespace App\Core\Application\Query\Task\GetTasks;
 
 
 use App\Core\Application\Query\Task\TaskDTO;
+use App\Core\Infrastructure\RedisRepository\Task\TaskRedis;
 use App\Core\Infrastructure\Repository\Task\GetUserTasks;
 
 final class GetTasksQueryHandler

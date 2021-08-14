@@ -56,9 +56,6 @@ class User implements UserInterface
     /** @var null|Collection */
     private $client;
 
-    /** @var Files */
-    private $files;
-
     /** @var Wallet */
     private $wallet;
 

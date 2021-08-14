@@ -19,20 +19,21 @@ class WalletControl
     /** @var float */
     private $money;
 
-    /** @var Wallet */
-    private $wallet;
+    /** @var WalletTask */
+    private $walletTask;
 
     /** @var User */
     private $users;
 
     public function __construct(
-        User $user
+        User $user,
+        float $earMoney
     )
     {
-        $this->id        = uuid_create();
-        $this->users     = $user;
-        $this->createdAt = new \DateTime();
-        $this->wallet    = $user->getWallet();
-        $this->money     = 0;
+        $this->id         = uuid_create();
+        $this->users      = $user;
+        $this->createdAt  = new \DateTime();
+        $this->walletTask = $user->getWallet();
+        $this->money      = $earMoney;
     }
 }

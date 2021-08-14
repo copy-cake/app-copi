@@ -11,18 +11,11 @@
 
         <field name="earnMoney" type="float" column="earn_money"/>
         <field name="updatedAt" type="datetime" column="updated_at"/>
+        <field name="bankName" type="string" column="bank_name"/>
+        <field name="bankNumber" type="string" column="bank_number"/>
 
         <one-to-one field="users" target-entity="App\Core\Domain\Model\Users\User" mapped-by="wallet">
         </one-to-one>
-
-
-        <one-to-many field="walletControl" target-entity="App\Core\Domain\Model\Wallet\WalletControl" mapped-by="wallet">
-            <cascade>
-                <cascade-remove/>
-                <cascade-persist/>
-            </cascade>
-        </one-to-many>
-
 
     </entity>
 </doctrine-mapping>

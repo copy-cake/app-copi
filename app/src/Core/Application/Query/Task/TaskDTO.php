@@ -46,7 +46,7 @@ final class TaskDTO
         $dto->createdAt            = $task->getTaskDate()->getCreateAt()->format(FormatDate::Y_M_D);
         $dto->client               = $client->getName();
         $dto->typeText             = $task->getTypeText()->getDestination();
-      //  $dto->walletControl        = $task->get
+        $dto->walletControl        = $task->getWalletTask()->getMoney();
 
         return $dto;
     }

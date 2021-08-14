@@ -9,7 +9,7 @@ use App\Core\Domain\Model\Task\Task;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
-class CreateTaskCommandHandler implements EventSubscriberInterface
+final class CreateTaskCommandHandler implements EventSubscriberInterface
 {
     /** @var EntityManagerInterface */
     private $entityManager;
@@ -37,11 +37,12 @@ class CreateTaskCommandHandler implements EventSubscriberInterface
     {
         $client        = $command->getCreateTaskDTO()->getClient();
         $createTaskDTO = $command->getCreateTaskDTO();
+        $user          = $command->getUser();
 
-        $paymentMoney  = $this->calculatePayout->myPayment($client->getSalary(), $createTaskDTO->getNumberCountCharacter(), $client->isGross());
+        $paymentMoney  = $this->calculatePayout->myPayment($client->getSalary(), $createTaskDTO->getNumberCountCharacter());
 
-        $task = new Task($createTaskDTO);
-        $task->createWalletControl($command->getUser(), $paymentMoney);
+        $task = new Task($user);
+        $task->factoryTask($createTaskDTO, $paymentMoney);
 
         $this->entityManager->persist($task);
         $this->entityManager->flush();

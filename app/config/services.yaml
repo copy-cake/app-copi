@@ -53,3 +53,7 @@ services:
         - tags:
               - { name: kernel.event_subscriber }
 
+    App\Core\Application\Command\Files\UploadFile\UploadFileCommand:
+        - tags:
+              - { name: kernel.event_subscriber }
+

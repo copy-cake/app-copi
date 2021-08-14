@@ -6,7 +6,6 @@ namespace App\Core\Domain\Model\Wallet;
 
 use App\Core\Domain\Model\Users\User;
 use App\Core\Domain\Model\Wallet\GS\WalletGS;
-use Doctrine\Common\Collections\ArrayCollection;
 
 class Wallet
 {
@@ -24,8 +23,12 @@ class Wallet
     /** @var \DateTime */
     private $updatedAt;
 
-    /** @var ArrayCollection */
-    private $walletControl;
+    /** @var null|string */
+    private $bankName;
+
+    /** @var null|string */
+    private $bankNumber;
+
 
     public function __construct(
     )

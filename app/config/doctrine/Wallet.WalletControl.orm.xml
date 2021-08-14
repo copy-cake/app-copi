@@ -12,13 +12,13 @@
         <field name="createdAt" type="datetime" column="created_at"/>
         <field name="money" type="float" column="earn_money"/>
 
-        <many-to-one field="wallet" target-entity="App\Core\Domain\Model\Wallet\Wallet" inversed-by="controlWallet">
+        <many-to-one field="walletTask" target-entity="App\Core\Domain\Model\Wallet\WalletTask" inversed-by="walletControl">
             <join-columns>
-                <join-column name="wallet_id" referenced-column-name="id"/>
+                <join-column name="wallet_task_id" referenced-column-name="id"/>
             </join-columns>
         </many-to-one>
 
-        <many-to-one field="users" target-entity="App\Core\Domain\Model\Users\User" inversed-by="controlWallet">
+        <many-to-one field="users" target-entity="App\Core\Domain\Model\Users\User" inversed-by="walletControl">
             <join-columns>
                 <join-column name="user_id" referenced-column-name="id"/>
             </join-columns>

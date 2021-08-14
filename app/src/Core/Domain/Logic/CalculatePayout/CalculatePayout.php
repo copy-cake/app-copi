@@ -15,16 +15,10 @@ final class CalculatePayout implements CalculatePayoutInterface
      * @param bool $isGross
      * @return float
      */
-    public function myPayment(float $salary, float $lengthOfWriteText, bool $isGross = true): float
+    public function myPayment(float $salary, float $lengthOfWriteText): float
     {
         $sumLengthText = $lengthOfWriteText / self::THOUSAND_CHARACTERS;
-        $salaryOnGross = $salary;
 
-        if (!$isGross) {
-
-            $salaryOnGross = $salary + ($salary * self::ACTUAL_TAX);
-        }
-
-        return round($salaryOnGross * $sumLengthText, 2);
+        return round($salary * $sumLengthText, 2);
     }
 }

@@ -124,6 +124,14 @@
       <excludeFolder url="file://$MODULE_DIR$/app/vendor/phpdocumentor/reflection-common" />
       <excludeFolder url="file://$MODULE_DIR$/app/vendor/webmozart/assert" />
       <excludeFolder url="file://$MODULE_DIR$/app/vendor/symfony/polyfill-intl-icu" />
+      <excludeFolder url="file://$MODULE_DIR$/app/vendor/mpdf/mpdf" />
+      <excludeFolder url="file://$MODULE_DIR$/app/vendor/twig/twig" />
+      <excludeFolder url="file://$MODULE_DIR$/app/vendor/setasign/fpdi" />
+      <excludeFolder url="file://$MODULE_DIR$/app/vendor/paragonie/random_compat" />
+      <excludeFolder url="file://$MODULE_DIR$/app/vendor/symfony/twig-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/app/vendor/symfony/twig-bridge" />
+      <excludeFolder url="file://$MODULE_DIR$/app/vendor/symfony/mime" />
+      <excludeFolder url="file://$MODULE_DIR$/app/vendor/symfony/mailer" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

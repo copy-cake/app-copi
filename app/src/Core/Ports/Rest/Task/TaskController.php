@@ -5,6 +5,7 @@ namespace App\Core\Ports\Rest\Task;
 
 
 use App\Core\Application\Command\Task\CreateTask\CreateTaskCommand;
+use App\Core\Application\Command\Task\UpdateTask\UpdateTaskCommand;
 use App\Core\Infrastructure\Form\Task\TaskType;
 use App\Core\Ports\Rest\CreateRestApi;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
@@ -31,6 +32,25 @@ class TaskController extends CreateRestApi
             $taskForm,
             $this->getUser()
         ), CreateTaskCommand::NAME);
+
+        return $this->json(null, 204);
+    }
+
+    /**
+     * @Route("/task/{task}", methods={"PUT"})
+     */
+    public function updateAction(
+        string $task,
+        Request $request,
+        EventDispatcherInterface $eventDispatcher
+    )
+    {
+        $taskForm = $this->buildObject($request, TaskType::class);
+
+        $eventDispatcher->dispatch(new UpdateTaskCommand(
+            $taskForm,
+            $task
+        ), UpdateTaskCommand::NAME);
 
         return $this->json(null, 204);
     }

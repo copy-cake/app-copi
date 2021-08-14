@@ -35,8 +35,8 @@
         </many-to-one>
 
 
-        <one-to-one field="walletControl" target-entity="App\Core\Domain\Model\Wallet\WalletControl" orphan-removal="true" fetch="LAZY">
-            <join-column name="wallet_control_id"/>
+        <one-to-one field="walletTask" target-entity="App\Core\Domain\Model\Wallet\WalletTask" orphan-removal="true" fetch="LAZY">
+            <join-column name="wallet_task_id"/>
             <cascade>
                 <cascade-remove/>
                 <cascade-persist/>

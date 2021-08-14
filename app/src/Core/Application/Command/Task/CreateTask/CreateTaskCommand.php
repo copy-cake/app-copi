@@ -7,7 +7,7 @@ namespace App\Core\Application\Command\Task\CreateTask;
 use App\Core\Application\Command\Task\CreateTaskDTO;
 use App\Core\Domain\Model\Users\User;
 
-class CreateTaskCommand
+final class CreateTaskCommand
 {
     public const NAME = 'create.task';
 

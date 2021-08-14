@@ -10,7 +10,7 @@ use App\Core\Domain\Model\File\Files;
 use App\Core\Domain\Model\Task\GS\TaskGS;
 use App\Core\Domain\Model\TypeText\TypeText;
 use App\Core\Domain\Model\Users\User;
-use App\Core\Domain\Model\Wallet\WalletControl;
+use App\Core\Domain\Model\Wallet\WalletTask;
 
 class Task
 {
@@ -43,39 +43,30 @@ class Task
     /** @var Files */
     private $files;
 
-    /** @var WalletControl */
-    private $walletControl; // todo here we will start event sourcing
+    /** @var WalletTask */
+    private $walletTask; // todo here we will start event sourcing
 
     public function __construct(
-        CreateTaskDTO $createTaskDTO,
         User $user
     )
     {
-        $this->id                   = uuid_create();
-        $this->status               = false;
-        $this->taskDate             = new TaskDate();
-        $this->titleTask            = $createTaskDTO->getTitleTask();
-        $this->client               = $createTaskDTO->getClient();
-        $this->numberCountCharacter = $createTaskDTO->getNumberCountCharacter();
-        $this->walletControl        = new WalletControl($user);
+        $this->users      = $user;
+        $this->id         = uuid_create();
+        $this->status     = false;
+        $this->taskDate   = new TaskDate();
+        $this->walletTask = new WalletTask();
     }
 
-    public function createWalletControl(
-        User $user,
+    public function factoryTask(
+        CreateTaskDTO $createTaskDTO,
         float $payoutMoney
     )
     {
-        $this->users         = $user;
-        $this->walletControl = new WalletControl($user, $payoutMoney);
+        $this->titleTask            = $createTaskDTO->getTitleTask();
+        $this->client               = $createTaskDTO->getClient();
+        $this->numberCountCharacter = $createTaskDTO->getNumberCountCharacter();
+        $this->typeText             = $createTaskDTO->getTypeText();
+        $this->walletTask->updateVariable($payoutMoney);
     }
-
-    /**
-     * @return WalletControl
-     */
-    public function getWalletControl(): WalletControl
-    {
-        return $this->walletControl;
-    }
-
 
 }
