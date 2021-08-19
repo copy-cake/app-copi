@@ -7,7 +7,6 @@ namespace App\Core\Domain\Model\Client;
 use App\Core\Application\Command\Client\CreateClientDTO;
 use App\Core\Domain\Model\Client\GS\ClientGS;
 use App\Core\Domain\Model\Users\User;
-use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 
 class Client
@@ -54,6 +53,7 @@ class Client
     {
         $this->id       = uuid_create();
         $this->createAt = new \DateTime();
+        $this->gross    = false;
     }
 
     public function handler(
@@ -67,6 +67,7 @@ class Client
         $this->numberHouse = $createClientDTO->getNumberHouse();
         $this->taxNumber   = $createClientDTO->getTaxNumber();
         $this->salary      = $createClientDTO->getSalary();
+        $this->gross       = $createClientDTO->isGross();
     }
 
     public function handlerUser(

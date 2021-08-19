@@ -11,6 +11,7 @@ use App\Core\Domain\Model\Task\GS\TaskGS;
 use App\Core\Domain\Model\TypeText\TypeText;
 use App\Core\Domain\Model\Users\User;
 use App\Core\Domain\Model\Wallet\WalletTask;
+use App\Shared\Domain\Enum\StatusTask;
 
 class Task
 {
@@ -28,7 +29,7 @@ class Task
     /** @var Client */
     private $client;
 
-    /** @var boolean */
+    /** @var bool */
     private $status;
 
     /** @var null|TypeText */
@@ -52,9 +53,9 @@ class Task
     {
         $this->users      = $user;
         $this->id         = uuid_create();
-        $this->status     = false;
         $this->taskDate   = new TaskDate();
         $this->walletTask = new WalletTask();
+        $this->status     = false;
     }
 
     public function factoryTask(
@@ -66,6 +67,7 @@ class Task
         $this->client               = $createTaskDTO->getClient();
         $this->numberCountCharacter = $createTaskDTO->getNumberCountCharacter();
         $this->typeText             = $createTaskDTO->getTypeText();
+        $this->status               = $createTaskDTO->getStatus();
         $this->walletTask->updateVariable($payoutMoney);
     }
 

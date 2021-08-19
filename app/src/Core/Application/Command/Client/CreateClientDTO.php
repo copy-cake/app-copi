@@ -27,6 +27,9 @@ final class CreateClientDTO
     /** @var float */
     private $salary;
 
+    /** @var boolean */
+    private $gross;
+
     /**
      * @return string
      */
@@ -137,5 +140,21 @@ final class CreateClientDTO
     public function setSalary(float $salary): void
     {
         $this->salary = $salary;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isGross(): bool
+    {
+        return $this->gross;
+    }
+
+    /**
+     * @param bool $gross
+     */
+    public function setGross(bool $gross): void
+    {
+        $this->gross = $gross;
     }
 }

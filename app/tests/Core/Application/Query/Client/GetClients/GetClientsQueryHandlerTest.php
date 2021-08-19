@@ -13,6 +13,7 @@ use App\Core\Domain\Model\Users\User;
 use App\Core\Infrastructure\Repository\Client\UserClients;
 use App\Shared\Domain\Exception\EmptyClient;
 use App\Shared\Infrastructure\ValueObject\PaginatedData;
+use App\Tests\Core\Application\Command\Client\CreateClientDTOTest;
 use PHPUnit\Framework\TestCase;
 
 class GetClientsQueryHandlerTest extends TestCase
@@ -55,20 +56,11 @@ class GetClientsQueryHandlerTest extends TestCase
 
     private function userClients(): array
     {
-        $createClientDTO = new CreateClientDTO();
-        $createClientDTO->setSalary(14.1);
-        $createClientDTO->setStreet('some street');
-        $createClientDTO->setZipCode('13-412');
-        $createClientDTO->setNumberHouse(12);
-        $createClientDTO->setCity('some city');
-        $createClientDTO->setTaxNumber('1234567890');
-        $createClientDTO->setName('some name');
-
         $clientOne = new Client();
         $clientTwo = new Client();
 
-        $clientOne->handler($createClientDTO);
-        $clientTwo->handler($createClientDTO);
+        $clientOne->handler(CreateClientDTOTest::createClient(),);
+        $clientTwo->handler(CreateClientDTOTest::createClient(),);
 
         return [$clientOne, $clientTwo];
     }

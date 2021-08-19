@@ -19,10 +19,16 @@ class TaskRepository extends ServiceEntityRepository implements GetUserTasks, Ma
          parent::__construct($registry, Task::class);
      }
 
-
     public function tasks(User $user): array
     {
-        return $this->findBy(['users' => $user]);
+        $qb = $this->createQueryBuilder('t');
+        $qb
+            ->where('t.users = :users')
+
+            ->setParameter('users', $user)
+            ->orderBy('t.taskDate.createAt', 'DESC');
+
+        return $qb->getQuery()->getResult();
     }
 
     public function foundTask(string $idTask): ?Task
@@ -38,8 +44,6 @@ class TaskRepository extends ServiceEntityRepository implements GetUserTasks, Ma
 
         $qb = $this->createQueryBuilder('t');
         $qb
-           // ->join('t.taskDate', 'taskDate')
-
             ->where('t.taskDate.createAt >= :firstDay')
             ->andWhere('t.taskDate.createAt <= :lastDay')
             ->andWhere('t.client = :client')

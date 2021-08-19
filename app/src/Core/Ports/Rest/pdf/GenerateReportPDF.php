@@ -42,6 +42,8 @@ class GenerateReportPDF extends AbstractController
          $client
     )
     {
+        header("Access-Control-Allow-Origin: *");
+
         $myClient   = $this->matchClient->foundClient($client);
         $monthTasks = $this->tasksOfMonth->getTasks($client);
 

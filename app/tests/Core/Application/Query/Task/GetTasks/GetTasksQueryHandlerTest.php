@@ -12,6 +12,7 @@ use App\Core\Domain\Model\Task\Task;
 use App\Core\Domain\Model\TypeText\TypeText;
 use App\Core\Domain\Model\Users\User;
 use App\Core\Infrastructure\Repository\Task\GetUserTasks;
+use App\Shared\Domain\Enum\StatusTask;
 use PHPUnit\Framework\TestCase;
 
 class GetTasksQueryHandlerTest extends TestCase

@@ -9,7 +9,7 @@ use App\Core\Domain\Model\Users\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
-class TypeTextRepository extends ServiceEntityRepository implements FindByOneTypeText, FindByTypeText
+class TypeTextRepository extends ServiceEntityRepository implements FindByOneTypeText, FindByTypeText, MatchTextType
 {
 
     public function __construct(ManagerRegistry $registry)
@@ -25,5 +25,17 @@ class TypeTextRepository extends ServiceEntityRepository implements FindByOneTyp
     public function findByText(User $user): array
     {
         return $this->findBy(['user' => $user]);
+    }
+
+    public function getTypeText(User $user): array
+    {
+        $qb = $this->createQueryBuilder('t');
+        $qb
+            ->where('t.user = :user')
+
+            ->setParameter('user', $user)
+            ->orderBy('t.createdAt', 'DESC');
+
+        return $qb->getQuery()->getResult();
     }
 }

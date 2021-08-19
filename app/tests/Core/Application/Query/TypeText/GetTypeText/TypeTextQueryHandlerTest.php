@@ -10,6 +10,7 @@ use App\Core\Application\Query\TypeText\GetTypeText\TypeTextQueryHandler;
 use App\Core\Domain\Model\TypeText\TypeText;
 use App\Core\Domain\Model\Users\User;
 use App\Core\Infrastructure\Repository\TypeText\FindByTypeText;
+use App\Core\Infrastructure\Repository\TypeText\MatchTextType;
 use PHPUnit\Framework\TestCase;
 
 class TypeTextQueryHandlerTest extends TestCase
@@ -17,18 +18,18 @@ class TypeTextQueryHandlerTest extends TestCase
 
     const DESCRIPTION = 'some_description';
 
-    /** @var FindByTypeText|\PHPUnit\Framework\MockObject\MockObject */
-    private $findByTypeText;
+    /** @var MatchTextType|\PHPUnit\Framework\MockObject\MockObject */
+    private $matchTextType;
 
     protected function setUp(): void
     {
-        $this->findByTypeText = $this->createMock(FindByTypeText::class);
+        $this->matchTextType = $this->createMock(MatchTextType::class);
     }
 
     public function testShouldReturnEmptyTypeText()
     {
         $command = new TypeTextQuery(new User());
-        $handler = new TypeTextQueryHandler($this->findByTypeText);
+        $handler = new TypeTextQueryHandler($this->matchTextType);
         $result  = $handler($command);
 
         $this->assertEmpty($result);
@@ -37,12 +38,12 @@ class TypeTextQueryHandlerTest extends TestCase
 
     public function testShouldReturnFullyTypeText()
     {
-        $this->findByTypeText
-             ->method('findByText')
+        $this->matchTextType
+             ->method('getTypeText')
              ->willReturn($this->createResponseFindTypeText());
 
         $command = new TypeTextQuery(new User());
-        $handler = new TypeTextQueryHandler($this->findByTypeText);
+        $handler = new TypeTextQueryHandler($this->matchTextType);
         $result  = $handler($command);
 
         $this->assertIsArray($result);

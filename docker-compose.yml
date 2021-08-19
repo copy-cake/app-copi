@@ -19,7 +19,7 @@ services:
     build:
       context: ./docker/php-fpm
     ports:
-      - 9000:9001
+      - 9001:9001
     volumes:
       - ./app/:/var/www/symfony:cached
       - ./logs/symfony:/var/www/symfony/var/log:cached

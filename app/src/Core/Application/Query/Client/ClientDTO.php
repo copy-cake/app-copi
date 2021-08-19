@@ -17,6 +17,21 @@ final class ClientDTO
     /** @var string */
     private $city;
 
+    /** @var string */
+    private $street;
+
+    /** @var string */
+    private $zipCode;
+
+    /** @var string */
+    private $numberHouse;
+
+    /** @var string */
+    private $taxNumber;
+
+    /** @var bool */
+    private $gross;
+
     /** @var float */
     private $salary;
 
@@ -24,10 +39,15 @@ final class ClientDTO
     {
         $dto = new static();
 
-        $dto->id     = $client->getId();
-        $dto->name   = $client->getName();
-        $dto->city   = $client->getCity();
-        $dto->salary = $client->getSalary();
+        $dto->id          = $client->getId();
+        $dto->name        = $client->getName();
+        $dto->city        = $client->getCity();
+        $dto->salary      = $client->getSalary();
+        $dto->street      = $client->getStreet();
+        $dto->zipCode     = $client->getZipCode();
+        $dto->numberHouse = $client->getNumberHouse();
+        $dto->taxNumber   = $client->getTaxNumber();
+        $dto->gross       = $client->isGross();
 
         return $dto;
     }
@@ -62,5 +82,45 @@ final class ClientDTO
     public function getSalary(): float
     {
         return $this->salary;
+    }
+
+    /**
+     * @return string
+     */
+    public function getStreet(): string
+    {
+        return $this->street;
+    }
+
+    /**
+     * @return string
+     */
+    public function getZipCode(): string
+    {
+        return $this->zipCode;
+    }
+
+    /**
+     * @return string
+     */
+    public function getNumberHouse(): string
+    {
+        return $this->numberHouse;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTaxNumber(): string
+    {
+        return $this->taxNumber;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isGross(): bool
+    {
+        return $this->gross;
     }
 }

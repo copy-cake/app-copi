@@ -37,6 +37,13 @@ class ClientRepository extends ServiceEntityRepository implements MatchClientInt
 
     public function getClients(User $user): ?array
     {
-        return $this->findBy(['user' => $user]);
+        $qb = $this->createQueryBuilder('c');
+        $qb
+            ->where('c.user = :user')
+
+            ->setParameter('user', $user)
+            ->orderBy('c.createAt', 'DESC')
+            ;
+        return $qb->getQuery()->getResult();
     }
 }

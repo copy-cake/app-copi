@@ -5,24 +5,24 @@ namespace App\Core\Application\Query\TypeText\GetTypeText;
 
 
 use App\Core\Application\Query\TypeText\TypeTextDTO;
-use App\Core\Infrastructure\Repository\TypeText\FindByTypeText;
-use App\Shared\Infrastructure\ValueObject\PaginatedData;
+use App\Core\Infrastructure\Repository\TypeText\MatchTextType;
 
 final class TypeTextQueryHandler
 {
-    /** @var FindByTypeText */
-    private $findByTypeText;
+    /** @var MatchTextType */
+    private $matchTextType;
 
     public function __construct(
-        FindByTypeText $findByTypeText
+        MatchTextType $matchTextType
     )
     {
-        $this->findByTypeText = $findByTypeText;
+
+        $this->matchTextType = $matchTextType;
     }
 
     public function __invoke(TypeTextQuery $textQuery): array
     {
-        $typeTexts = $this->findByTypeText->findByText($textQuery->getUser());
+        $typeTexts = $this->matchTextType->getTypeText($textQuery->getUser());
 
         $buildTable = [];
         foreach ($typeTexts as $typeText) {

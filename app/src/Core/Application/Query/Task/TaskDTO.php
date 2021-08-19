@@ -15,14 +15,20 @@ final class TaskDTO
     /** @var string */
     private $titleTask;
 
-    /** @var boolean */
+    /** @var int */
     private $status;
 
     /** @var string */
     private $createdAt;
 
     /** @var string */
+    private $deadLine;
+
+    /** @var string */
     private $client;
+
+    /** @var string */
+    private $clientId;
 
     /** @var int */
     private $numberCountCharacter;
@@ -30,8 +36,11 @@ final class TaskDTO
     /** @var string */
     private $typeText;
 
+    /** @var string */
+    private $typeTextId;
+
     /** @var float */
-    private $walletControl;
+    private $walletTask;
 
     public static function fromEntity(Task $task): TaskDTO
     {
@@ -41,12 +50,15 @@ final class TaskDTO
 
         $dto->id                   = $task->getId();
         $dto->titleTask            = $task->getTitleTask();
-        $dto->status               = $task->isStatus();
+        $dto->status               = $task->getStatus();
         $dto->numberCountCharacter = $task->getNumberCountCharacter();
         $dto->createdAt            = $task->getTaskDate()->getCreateAt()->format(FormatDate::Y_M_D);
+        $dto->deadLine             = $task->getTaskDate()->getDeadLineAt()->format(FormatDate::Y_M_D);
         $dto->client               = $client->getName();
+        $dto->clientId             = $client->getId();
+        $dto->typeTextId           = $task->getTypeText()->getId();
         $dto->typeText             = $task->getTypeText()->getDestination();
-        $dto->walletControl        = $task->getWalletTask()->getMoney();
+        $dto->walletTask           = $task->getWalletTask()->getMoney();
 
         return $dto;
     }
@@ -68,9 +80,9 @@ final class TaskDTO
     }
 
     /**
-     * @return bool
+     * @return int
      */
-    public function isStatus(): bool
+    public function getStatus(): int
     {
         return $this->status;
     }
@@ -110,8 +122,32 @@ final class TaskDTO
     /**
      * @return float
      */
-    public function getWalletControl(): float
+    public function getWalletTask(): float
     {
-        return $this->walletControl;
+        return $this->walletTask;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDeadLine(): string
+    {
+        return $this->deadLine;
+    }
+
+    /**
+     * @return string
+     */
+    public function getClientId(): string
+    {
+        return $this->clientId;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTypeTextId(): string
+    {
+        return $this->typeTextId;
     }
 }

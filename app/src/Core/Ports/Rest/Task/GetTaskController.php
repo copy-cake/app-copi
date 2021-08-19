@@ -19,9 +19,9 @@ class GetTaskController extends QueryApi
      */
     public function indexAction()
     {
-        $getClients = new GetTasksQuery($this->getUser());
+        $getTasks = new GetTasksQuery($this->getUser());
 
-        return $this->serializeQueryObject($getClients);
+        return $this->serializeQueryObject($getTasks);
     }
 
 }

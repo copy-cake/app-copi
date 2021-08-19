@@ -19,6 +19,7 @@ final class     CreateClientDTOTest
         $createClientDTO->setSalary(12.1);
         $createClientDTO->setTaxNumber('1234567890');
         $createClientDTO->setZipCode('66-666');
+        $createClientDTO->setGross(true);
 
         return $createClientDTO;
     }

@@ -10,14 +10,6 @@ use Doctrine\Common\Collections\ArrayCollection;
 trait WalletGS
 {
     /**
-     * @return string
-     */
-    public function getId(): ?string
-    {
-        return $this->id;
-    }
-
-    /**
      * @return float
      */
     public function getEarnMoney(): float
@@ -26,27 +18,11 @@ trait WalletGS
     }
 
     /**
-     * @return User
-     */
-    public function getUsers(): User
-    {
-        return $this->users;
-    }
-
-    /**
      * @return \DateTime
      */
     public function getUpdatedAt(): \DateTime
     {
         return $this->updatedAt;
-    }
-
-    /**
-     * @return ArrayCollection
-     */
-    public function getWalletControl(): ArrayCollection
-    {
-        return $this->walletControl;
     }
 
     /**
@@ -64,4 +40,29 @@ trait WalletGS
     {
         return $this->bankNumber;
     }
+
+    /**
+     * @return string|null
+     */
+    public function getStreet(): ?string
+    {
+        return $this->street;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getZipCode(): ?string
+    {
+        return $this->zipCode;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getCity(): ?string
+    {
+        return $this->city;
+    }
+
 }

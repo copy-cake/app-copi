@@ -9,6 +9,7 @@ use App\Core\Domain\Model\Client\Client;
 use App\Core\Domain\Model\TypeText\TypeText;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -27,6 +28,7 @@ class TaskType extends AbstractType
                 'class' => TypeText::class
             ])
             ->add('numberCountCharacter', TextType::class)
+            ->add('status', CheckboxType::class)
             ;
     }
 

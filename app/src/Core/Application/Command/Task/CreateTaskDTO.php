@@ -24,6 +24,9 @@ final class CreateTaskDTO
     /** @var null|int */
     private $numberCountCharacter;
 
+    /** @var bool */
+    private $status = false;
+
     /**
      * @return string|null
      */
@@ -102,5 +105,21 @@ final class CreateTaskDTO
     public function setNumberCountCharacter(?int $numberCountCharacter): void
     {
         $this->numberCountCharacter = $numberCountCharacter;
+    }
+
+    /**
+     * @return bool
+     */
+    public function getStatus(): bool
+    {
+        return $this->status;
+    }
+
+    /**
+     * @param bool $status
+     */
+    public function setStatus(?bool $status): void
+    {
+        $this->status = $status;
     }
 }

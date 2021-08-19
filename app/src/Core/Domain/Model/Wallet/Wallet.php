@@ -4,6 +4,7 @@
 namespace App\Core\Domain\Model\Wallet;
 
 
+use App\Core\Application\Command\UserManagement\UserManagementCreate;
 use App\Core\Domain\Model\Users\User;
 use App\Core\Domain\Model\Wallet\GS\WalletGS;
 
@@ -29,6 +30,15 @@ class Wallet
     /** @var null|string */
     private $bankNumber;
 
+    /** @var null|string */
+    private $street;
+
+    /** @var null|string */
+    private $zipCode;
+
+    /** @var null|string */
+    private $city;
+
 
     public function __construct(
     )
@@ -39,8 +49,13 @@ class Wallet
     }
 
 
-    public function createWallet()
+    public function updateWallet(UserManagementCreate $managementCreate)
     {
-        $walletControl = new WalletControl();
+        $this->bankName   = $managementCreate->getBankName();
+        $this->bankNumber = $managementCreate->getBankNumber();
+        $this->street     = $managementCreate->getStreet();
+        $this->zipCode    = $managementCreate->getZipCode();
+        $this->city       = $managementCreate->getZipCode();
+        $this->updatedAt  = new \DateTime();
     }
 }

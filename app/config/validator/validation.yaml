@@ -1,0 +1,51 @@
+App\Core\Application\Command\Task\CreateTaskDTO:
+  properties:
+    titleTask:
+      - NotBlank: ~
+    client:
+      - NotBlank: ~
+    typeText:
+      - NotBlank: ~
+    numberCountCharacter:
+      - NotBlank: ~
+
+App\Core\Application\Command\Client\CreateClientDTO:
+  properties:
+    name:
+      - NotBlank: ~
+    city:
+      - NotBlank: ~
+    street:
+      - NotBlank: ~
+    zipCode:
+      - Length:
+          min: 6
+          max: 6
+    numberHouse:
+      - Length:
+          min: 1
+          max: 7
+    taxNumber:
+      - Length:
+          min: 10
+          max: 10
+    salary:
+      - PositiveOrZero: ~
+
+App\Core\Application\Command\UserManagement\UserManagementCreate:
+  properties:
+    bankName:
+      - NotBlank: ~
+    bankNumber:
+      - Length:
+          min: 26
+          max: 26
+    city:
+      - NotBlank: ~
+    street:
+      - NotBlank: ~
+    zipCode:
+      - Length:
+         min: 6
+         max: 6
+
