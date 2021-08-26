@@ -20,7 +20,6 @@ class ClientType extends AbstractType
             ->add('city', TextType::class)
             ->add('street', TextType::class)
             ->add('zipCode', TextType::class)
-            ->add('numberHouse',TextType::class)
             ->add('taxNumber', TextType::class)
             ->add('salary', TextType::class)
             ->add('gross', CheckboxType::class)

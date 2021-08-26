@@ -24,7 +24,6 @@ class ClientTypeTest extends TypeTestCase
         $this->assertArrayHasKey('city', $view);
         $this->assertArrayHasKey('street', $view);
         $this->assertArrayHasKey('zipCode', $view);
-        $this->assertArrayHasKey('numberHouse', $view);
         $this->assertArrayHasKey('taxNumber', $view);
         $this->assertArrayHasKey('salary', $view);
 

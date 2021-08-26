@@ -5,8 +5,6 @@ namespace App\Core\Domain\Model\Users;
 
 
  use App\Core\Application\Command\User\CreateUserDTO;
- use App\Core\Application\Command\User\UserPasswordDTO;
- use App\Core\Domain\Model\File\Files;
  use App\Core\Domain\Model\Users\GS\UserGS;
  use App\Core\Domain\Model\Wallet\Wallet;
  use Doctrine\Common\Collections\ArrayCollection;
@@ -47,9 +45,6 @@ class User implements UserInterface
     /** @var array */
     private $roles;
 
-    /** @var UsersAuth */
-    private $auth;
-
     /** @var null|Collection */
     private $tasks;
 
@@ -64,6 +59,15 @@ class User implements UserInterface
 
     /** @var Collection */
     private $typeText;
+
+    /** @var string */
+    private $codeAuth;
+
+    /** @var null|\DateTime */
+    private $dateAuthAt;
+
+    /** @var null|\DateTime */
+    private $changePasswordAt;
 
     public function __construct()
     {
@@ -86,10 +90,18 @@ class User implements UserInterface
     }
 
     public function addPassword(
-        UserPasswordDTO $passwordDTO
+        string $passwordDTO
     )
     {
-        $this->password = $passwordDTO->getPassword();
+        $this->password         = password_hash($passwordDTO, PASSWORD_BCRYPT);
+        $this->changePasswordAt = new \DateTime();
+        $this->codeAuth         = uuid_create();
+    }
+
+    public function newTokenResetPassword(string $hashToken)
+    {
+        $this->codeAuth   = $hashToken;
+        $this->dateAuthAt = new \DateTime();
     }
 
     public function managerEnabledUser(bool $enabled)
@@ -101,4 +113,5 @@ class User implements UserInterface
      {
          // TODO: Implement @method string getUserIdentifier()
      }
+
  }

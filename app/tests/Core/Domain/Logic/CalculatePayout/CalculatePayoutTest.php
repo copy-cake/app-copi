@@ -10,6 +10,7 @@ use PHPUnit\Framework\TestCase;
 class CalculatePayoutTest extends TestCase
 {
     const SALARY_ONE = 24.5;
+    const SALARY_TWO = 10;
     const LENGTH_ONE = 2200;
 
     /** @var CalculatePayout  */
@@ -26,5 +27,4 @@ class CalculatePayoutTest extends TestCase
 
         $this->assertEquals(53.9, $result);
     }
-
 }

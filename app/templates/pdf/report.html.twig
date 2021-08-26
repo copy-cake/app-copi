@@ -25,10 +25,10 @@
         <thead>
             <tr>
                 <td style="text-align: left; font-size: 0.8em">
-                    Wykonawca <br>
+                    <b>Wykonawca</b> <br>
                     {{ user.firstName }} {{ user.lastName }}<br>
-                    ul. Gombrowicza 37/22<br>
-                    59-220 Legnica
+                    ul. {{ user.wallet.street}}<br>
+                    {{ user.wallet.zipCode }} {{ user.wallet.city }}
 
                 </td>
                 <td style="text-align: right; font-size: 0.8em">
@@ -38,9 +38,9 @@
             <tr style="height: 10mm"></tr>
             <tr>
                 <td style="font-size: 0.8em"><br>
-                    Klient<br>
+                    <b>Klient</b><br>
                     {{ client.name }}<br>
-                    {{ client.street }}<br>
+                    ul. {{ client.street }}<br>
                     {{ client.zipCode }} {{ client.city }}<br>
                 </td>
             </tr>
@@ -65,11 +65,11 @@
                         <tbody style="border: 1px solid black; width: 100%;">
                             {% for key,row in tasks %}
                                 <tr style="border: 1px solid black; width: 100%;">
-                                    <td class="border-td">{{ key+1 }}</td>
-                                    <td class="border-td">{{ row.titleTask }}</td>
+                                    <td class="border-td" style="width: 5%">{{ key+1 }}</td>
+                                    <td class="border-td" style="width: 50%">{{ row.titleTask }}</td>
                                     <td class="border-td">{{ row.numberCountCharacter }}</td>
-                                    <td class="border-td">{{ client.salary }} zł</td>
-                                    <td class="last-td"> <b style="color: #00ACA9">{{ row.walletTask.money | replace({'.': ','}) }} zł</b></td>
+                                    <td class="border-td">{{ client.salary }}</td>
+                                    <td class="last-td" style="text-align: right">{{ row.walletTask.money | replace({'.': ','}) }} zł</td>
                                 </tr>
                             {% endfor %}
                         </tbody>

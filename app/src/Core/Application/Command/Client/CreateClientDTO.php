@@ -18,9 +18,6 @@ final class CreateClientDTO
     /** @var string */
     private $zipCode;
 
-    /** @var string */
-    private $numberHouse;
-
     /** @var int */
     private $taxNumber;
 
@@ -92,22 +89,6 @@ final class CreateClientDTO
     public function setZipCode(string $zipCode): void
     {
         $this->zipCode = $zipCode;
-    }
-
-    /**
-     * @return string
-     */
-    public function getNumberHouse(): string
-    {
-        return $this->numberHouse;
-    }
-
-    /**
-     * @param string $numberHouse
-     */
-    public function setNumberHouse(string $numberHouse): void
-    {
-        $this->numberHouse = $numberHouse;
     }
 
     /**

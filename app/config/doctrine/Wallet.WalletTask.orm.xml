@@ -10,7 +10,7 @@
         </id>
 
         <field name="createdAt" type="datetime" column="created_at"/>
-        <field name="money" type="float" column="earn_money"/>
+        <field name="money" type="float" precision="10" scale="2" column="earn_money"/>
 
         <one-to-many field="walletControl" target-entity="App\Core\Domain\Model\Wallet\WalletControl" mapped-by="walletTask">
             <cascade>

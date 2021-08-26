@@ -84,14 +84,6 @@ trait UserGS
     }
 
     /**
-     * @return UsersAuth
-     */
-    public function getAuth(): UsersAuth
-    {
-        return $this->auth;
-    }
-
-    /**
      * @return Collection|null
      */
     public function getTasks(): ?Collection
@@ -131,5 +123,29 @@ trait UserGS
     public function getWallet(): Wallet
     {
         return $this->wallet;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCodeAuth(): string
+    {
+        return $this->codeAuth;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getDateAuthAt(): \DateTime
+    {
+        return $this->dateAuthAt;
+    }
+
+    /**
+     * @return \DateTime|null
+     */
+    public function getChangePassword(): ?\DateTime
+    {
+        return $this->changePassword;
     }
 }

@@ -12,16 +12,16 @@ abstract class RedisConfig
     public function __construct()
     {
         $this->redis = new \Redis();
-        $this->redis->connect('redis');
+        $this->redis->connect($_ENV['HOST_REDIS'], $_ENV['PORT_REDIS']);
     }
 
     /**
      * @param string $key
      * @param $data
      */
-    protected function createCache(string $key, $data): void
+    protected function createCache(string $key, $data, string $timeout): void
     {
-        $this->redis->set($key, $data);
+        $this->redis->set($key, $data, $timeout);
     }
 
     /**
@@ -31,5 +31,10 @@ abstract class RedisConfig
     protected function readCache(string $key)
     {
         return $this->redis->get($key);
+    }
+
+    protected function clearCache(string $key): void
+    {
+        $this->redis->delete($key);
     }
 }

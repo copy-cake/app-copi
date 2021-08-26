@@ -29,7 +29,7 @@ class Client
     private $zipCode;
 
     /** @var string */
-    private $numberHouse;
+    private $numberHouse = 1;
 
     /** @var int */
     private $taxNumber;
@@ -64,7 +64,6 @@ class Client
         $this->city        = $createClientDTO->getCity();
         $this->street      = $createClientDTO->getStreet();
         $this->zipCode     = $createClientDTO->getZipCode();
-        $this->numberHouse = $createClientDTO->getNumberHouse();
         $this->taxNumber   = $createClientDTO->getTaxNumber();
         $this->salary      = $createClientDTO->getSalary();
         $this->gross       = $createClientDTO->isGross();

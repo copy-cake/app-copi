@@ -9,7 +9,7 @@
             <generator strategy="NONE"/>
         </id>
 
-        <field name="earnMoney" type="float" column="earn_money"/>
+        <field name="earnMoney"  type="float" precision="10" scale="2" column="earn_money"/>
         <field name="updatedAt" type="datetime" column="updated_at"/>
         <field name="bankName" type="string" column="bank_name"/>
         <field name="bankNumber" type="string" column="bank_number" length="26"/>
