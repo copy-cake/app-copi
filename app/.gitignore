@@ -10,6 +10,9 @@
 /vendor/
 ../db/
 ../logs/
+/public/files/
+/bin/doc/
+/.env.test
 ###< symfony/framework-bundle ###
 
 ###> phpunit/phpunit ###

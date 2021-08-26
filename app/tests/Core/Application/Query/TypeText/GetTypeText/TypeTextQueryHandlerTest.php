@@ -9,7 +9,6 @@ use App\Core\Application\Query\TypeText\GetTypeText\TypeTextQuery;
 use App\Core\Application\Query\TypeText\GetTypeText\TypeTextQueryHandler;
 use App\Core\Domain\Model\TypeText\TypeText;
 use App\Core\Domain\Model\Users\User;
-use App\Core\Infrastructure\Repository\TypeText\FindByTypeText;
 use App\Core\Infrastructure\Repository\TypeText\MatchTextType;
 use PHPUnit\Framework\TestCase;
 
@@ -21,14 +20,19 @@ class TypeTextQueryHandlerTest extends TestCase
     /** @var MatchTextType|\PHPUnit\Framework\MockObject\MockObject */
     private $matchTextType;
 
+    /** @var User|mixed|\PHPUnit\Framework\MockObject\MockObject */
+    private $user;
+
     protected function setUp(): void
     {
+        $this->user = $this->createMock(User::class);
+
         $this->matchTextType = $this->createMock(MatchTextType::class);
     }
 
     public function testShouldReturnEmptyTypeText()
     {
-        $command = new TypeTextQuery(new User());
+        $command = new TypeTextQuery($this->user);
         $handler = new TypeTextQueryHandler($this->matchTextType);
         $result  = $handler($command);
 
@@ -42,7 +46,7 @@ class TypeTextQueryHandlerTest extends TestCase
              ->method('getTypeText')
              ->willReturn($this->createResponseFindTypeText());
 
-        $command = new TypeTextQuery(new User());
+        $command = new TypeTextQuery($this->user);
         $handler = new TypeTextQueryHandler($this->matchTextType);
         $result  = $handler($command);
 
