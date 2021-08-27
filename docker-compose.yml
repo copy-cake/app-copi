@@ -8,9 +8,6 @@ services:
       - 3306:3306
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: chemiq_app
-      MYSQL_USER: chemiq_app_admin
-      MYSQL_PASSWORD: Qa91tU%S21(3+swR2)m
     volumes:
       - ./db:/var/lib/mysql
 
