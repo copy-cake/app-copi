@@ -2,7 +2,8 @@
 
 namespace App\Core\Infrastructure\Event\EventMessage\NewToken;
 
-use App\Core\Infrastructure\Notification\NotificationEmil;
+
+use App\Shared\Infrastructure\Notification\NotificationEmil;
 
 final class NewTokenMessage
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Core\Infrastructure\Notification;
+namespace App\Shared\Infrastructure\Notification;
 
 final class NotificationEmil
 {

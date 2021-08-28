@@ -15,8 +15,8 @@ class UsersRepository extends ServiceEntityRepository implements MatchUser
         parent::__construct($registry, User::class);
     }
 
-    public function getUser(string $addressEmail): ?User
+    public function getUser(string $addressEmail, string $field = 'email'): ?User
     {
-        return $this->findOneBy(['email' => $addressEmail]);
+        return $this->findOneBy([$field => $addressEmail]);
     }
 }

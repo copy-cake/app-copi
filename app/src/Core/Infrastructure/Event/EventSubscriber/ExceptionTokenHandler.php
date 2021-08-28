@@ -4,7 +4,10 @@ namespace App\Core\Infrastructure\Event\EventSubscriber;
 
 
 use App\Core\Application\RetryPassword\UserExist\CheckUserExist\CreateResetTokenPasswordInterface;
+use App\Shared\Domain\Exception\BrutForceLoginException;
+use App\Shared\Domain\Exception\DisabledAccount;
 use App\Shared\Domain\Exception\InvalidResetToken;
+use App\Shared\Domain\Exception\InvalidUser;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
@@ -40,6 +43,18 @@ final class ExceptionTokenHandler implements EventSubscriberInterface
 
                 $this->refreshToken($event);
                 return;
+            } elseif ($exception instanceof BrutForceLoginException) {
+
+                $this->refreshToken($event);
+                return;
+            } elseif ($exception instanceof DisabledAccount) {
+
+                $this->refreshToken($event);
+                return;
+            } elseif ($exception instanceof InvalidUser) {
+
+                $this->invalidUser($event);
+                return;
             }
         } while (null !== $exception = $exception->getPrevious());
     }
@@ -49,6 +64,12 @@ final class ExceptionTokenHandler implements EventSubscriberInterface
     {
         $exception = $event->getThrowable();
         $response  = new JsonResponse($exception->getMessage(), Response::HTTP_BAD_REQUEST);
+        $event->setResponse($response);
+    }
+
+    private function invalidUser(ExceptionEvent $event)
+    {
+        $response  = new JsonResponse(null, Response::HTTP_NO_CONTENT);
         $event->setResponse($response);
     }
 }

@@ -1,17 +1,15 @@
 <?php
 
-namespace App\Core\Infrastructure\Notification\SendNotificationEmil;
+namespace App\Shared\Infrastructure\Notification\SendNotificationEmil;
 
-
-use App\Core\Infrastructure\Notification\NotificationEmil;
 use App\Shared\Domain\Enum\Email\TypeEmail;
+use App\Shared\Infrastructure\Notification\NotificationEmil;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Email;
 use Twig\Environment;
 
 final class SendNotificationEmil implements SendNotificationEmilInterface
 {
-
     /** @var MailerInterface  */
     private MailerInterface $mailer;
 

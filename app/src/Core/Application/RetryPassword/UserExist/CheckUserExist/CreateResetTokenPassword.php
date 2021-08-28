@@ -6,10 +6,10 @@ namespace App\Core\Application\RetryPassword\UserExist\CheckUserExist;
 use App\Core\Application\Command\User\CreateResetTokenPassword\CreateResetTokenPasswordCommand;
 use App\Core\Application\RetryPassword\UserExist\SendTokenPasswordDTO;
 use App\Core\Infrastructure\Event\EventMessage\NewToken\NewTokenMessage;
-use App\Core\Infrastructure\Notification\FactoryEmil\FactoryEmail;
 use App\Core\Infrastructure\Repository\Users\MatchUser;
 use App\Core\Infrastructure\Security\ResetPassword\CreateResetToken\CreateResetTokenInterface;
 use App\Shared\Domain\Exception\InvalidUser;
+use App\Shared\Infrastructure\Notification\FactoryEmil\FactoryEmail;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\Messenger\MessageBusInterface;
 

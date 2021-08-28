@@ -11,17 +11,6 @@ services:
     volumes:
       - ./db:/var/lib/mysql
 
-  dbTest:
-    container_name: dbTest
-    image: mysql
-    command: --default-authentication-plugin=mysql_native_password
-    ports:
-      - 3307:3306
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-    volumes:
-      - ./db:/var/lib/mysql
-
   php:
     container_name: php-fpm
     build:

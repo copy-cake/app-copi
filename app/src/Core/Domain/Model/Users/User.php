@@ -69,6 +69,9 @@ class User implements UserInterface
     /** @var null|\DateTime */
     private $changePasswordAt;
 
+    /** @var \DateTime */
+    private $disabledAccount;
+
     public function __construct()
     {
         $this->id        = uuid_create();
@@ -96,6 +99,13 @@ class User implements UserInterface
         $this->password         = password_hash($passwordDTO, PASSWORD_BCRYPT);
         $this->changePasswordAt = new \DateTime();
         $this->codeAuth         = uuid_create();
+        $this->enabled          = true;
+    }
+
+    public function disableAccount()
+    {
+        $this->disabledAccount = new \DateTime();
+        $this->enabled         = false;
     }
 
     public function newTokenResetPassword(string $hashToken)

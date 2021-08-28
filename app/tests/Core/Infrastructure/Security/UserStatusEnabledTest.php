@@ -6,6 +6,7 @@ namespace App\Tests\Core\Infrastructure\Security;
 
 use App\Core\Domain\Model\Users\User;
 use App\Core\Infrastructure\Security\UserStatusEnabled;
+use App\Shared\Domain\Exception\DisabledAccount;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Security\Core\Exception\DisabledException;
 
@@ -21,8 +22,8 @@ class UserStatusEnabledTest extends TestCase
 
     public function testShouldReturnExceptionUserIsDisabled()
     {
-        $this->expectException(DisabledException::class);
-        $this->expectExceptionMessage('disabled_user');
+        $this->expectException(DisabledAccount::class);
+        $this->expectExceptionMessage('Account is disabled.');
 
         $this->userStatusEnabled->checkPreAuth(new User());
     }

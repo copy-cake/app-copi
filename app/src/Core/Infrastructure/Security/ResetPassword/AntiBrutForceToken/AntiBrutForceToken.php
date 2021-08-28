@@ -4,7 +4,6 @@ namespace App\Core\Infrastructure\Security\ResetPassword\AntiBrutForceToken;
 
 
 use App\Core\Infrastructure\RedisRepository\Users\GetCacheTokenStatus;
-use App\Core\Infrastructure\RedisRepository\Users\UserBrutForceToken;
 
 
 final class AntiBrutForceToken implements AntiBrutForceTokenInterface
@@ -18,7 +17,6 @@ final class AntiBrutForceToken implements AntiBrutForceTokenInterface
         GetCacheTokenStatus $cacheTokenStatus
     )
     {
-
         $this->cacheTokenStatus = $cacheTokenStatus;
     }
 

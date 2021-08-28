@@ -10,7 +10,6 @@ final class CsrfRedis extends RedisConfig implements GetCsrfSession, CreateCsrfS
     const KEY_REDIS_CSRF    = 'csrf-';
     const TIMEOUT_CSRF      = 360;
 
-
     public function getSession(string $idUser): string
     {
         return $this->readCache(self::KEY_REDIS_CSRF.$idUser);

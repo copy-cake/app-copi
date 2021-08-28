@@ -5,7 +5,6 @@ namespace App\Core\Ports\Cli;
 
 
 use App\Core\Application\Command\User\CreateUserDTO;
-use App\Core\Application\Command\User\UserPasswordDTO;
 use App\Core\Domain\Model\Users\User;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Console\Command\Command;
@@ -37,19 +36,15 @@ class BuildFakeDataTable extends Command
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $createUserDTO = new CreateUserDTO();
-        $createUserDTO->setEmail('bohema.michal@gmail.com');
-        $createUserDTO->setFirstName('admin');
-        $createUserDTO->setLastName('admin');
-        $createUserDTO->setUsername('admin');
+        $createUserDTO->setEmail($_ENV['USER_EMAIL']);
+        $createUserDTO->setFirstName($_ENV['USER_FIRST_NAME']);
+        $createUserDTO->setLastName($_ENV['USER_LAST_NAME']);
+        $createUserDTO->setUsername($_ENV['USER_USERNAME']);
         $createUserDTO->setRoles(['ROLE_ADMIN']);
-        $createUserDTO->setEnable(true);
-
-        $passwordDTO = new UserPasswordDTO();
-        $passwordDTO->setPassword(password_hash('qwerty123', PASSWORD_DEFAULT));
 
         $user = new User();
         $user->createUsers($createUserDTO);
-        $user->addPassword($passwordDTO);
+        $user->addPassword($_ENV['USER_PASSWORD']);
 
         $this->entityManager->persist($user);
         $this->entityManager->flush();

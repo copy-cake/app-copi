@@ -3,7 +3,8 @@
 namespace App\Core\Infrastructure\Event\EventMessage\NewToken;
 
 
-use App\Core\Infrastructure\Notification\SendNotificationEmil\SendNotificationEmilInterface;
+
+use App\Shared\Infrastructure\Notification\SendNotificationEmil\SendNotificationEmilInterface;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 
 final class NewTokenMessageHandler implements MessageHandlerInterface

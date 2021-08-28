@@ -7,5 +7,5 @@ use App\Core\Domain\Model\Users\User;
 
 interface MatchUser
 {
-    public function getUser(string $addressEmail): ?User;
+    public function getUser(string $addressEmail, string $field = 'email'): ?User;
 }

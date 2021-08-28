@@ -1,10 +1,9 @@
 <?php
 
-namespace App\Core\Infrastructure\Notification\FactoryEmil;
+namespace App\Shared\Infrastructure\Notification\FactoryEmil;
 
-
-use App\Core\Infrastructure\Notification\NotificationEmil;
 use App\Shared\Domain\Enum\Email\TypeEmail;
+use App\Shared\Infrastructure\Notification\NotificationEmil;
 
 final class FactoryEmail
 {
