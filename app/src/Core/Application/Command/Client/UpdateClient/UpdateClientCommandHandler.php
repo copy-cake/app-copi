@@ -10,10 +10,9 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 final class UpdateClientCommandHandler implements EventSubscriberInterface
 {
-    /** @var MatchClientInterface  */
+
     private MatchClientInterface $matchClient;
 
-    /** @var ClientRepositoryInterface  */
     private ClientRepositoryInterface $clientRepository;
 
     public function __construct(

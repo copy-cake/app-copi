@@ -10,11 +10,10 @@ final class UpdateClientCommand
 {
     public const NAME = 'update.client';
 
-    /** @var CreateClientDTO */
-    private $createClientDTO;
+    private CreateClientDTO $createClientDTO;
 
-    /** @var string */
-    private $client;
+    private string $client;
+
 
     public function __construct(
         CreateClientDTO $clientDTO,

@@ -1,4 +1,6 @@
-## copy cake app
+# copycake
+
+<img src="icon.png" alt="drawing" width="200"/>
 
 ### About this app
 

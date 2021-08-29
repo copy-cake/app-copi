@@ -12,16 +12,12 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 final class UploadFileCommandHandler implements EventSubscriberInterface
 {
-    /** @var EntityManagerInterface  */
     private EntityManagerInterface $entityManager;
 
-    /** @var ValidFileExtInterface  */
     private ValidFileExtInterface $validFileExt;
 
-    /** @var SaveUploadFileInterface  */
     private SaveUploadFileInterface $saveUploadFile;
 
-    /** @var MatchTask  */
     private MatchTask $matchTask;
 
     public function __construct(

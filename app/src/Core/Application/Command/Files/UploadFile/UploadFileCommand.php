@@ -9,12 +9,9 @@ final class UploadFileCommand
 {
     public const NAME = 'upload.file';
 
-    /** @var string  */
     private string $taskId;
 
-    /** @var UploadedFile  */
     private UploadedFile $uploadedFile;
-
 
     public function __construct(
         UploadedFile $uploadedFile,

@@ -10,8 +10,7 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 final class CreateClientCommandHandler implements EventSubscriberInterface
 {
-    /** @var ClientRepositoryInterface */
-    private $clientRepository;
+    private ClientRepositoryInterface $clientRepository;
 
     public function __construct(
         ClientRepositoryInterface $clientRepository
