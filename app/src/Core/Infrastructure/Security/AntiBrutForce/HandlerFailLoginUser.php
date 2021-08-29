@@ -48,7 +48,7 @@ final class HandlerFailLoginUser implements EventSubscriberInterface
 
             $this->eventDispatcher->dispatch(new BlockUserCommand($incorrectLogin), BlockUserCommand::NAME);
             $this->brutForceManagerCache->clear();
-            throw new BrutForceLoginException('Too many incorrect logins. You`r account is disabled.');
+            throw new BrutForceLoginException('Too many incorrect logins. Your account is disabled.');
         }
 
         $sumIncorrectLogin += self::ADD_INCORRECT_LOGIN;

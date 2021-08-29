@@ -41,6 +41,7 @@ class BuildFakeDataTable extends Command
         $createUserDTO->setLastName($_ENV['USER_LAST_NAME']);
         $createUserDTO->setUsername($_ENV['USER_USERNAME']);
         $createUserDTO->setRoles(['ROLE_ADMIN']);
+        $createUserDTO->setEnable(true);
 
         $user = new User();
         $user->createUsers($createUserDTO);

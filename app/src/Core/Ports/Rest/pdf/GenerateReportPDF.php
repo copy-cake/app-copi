@@ -54,6 +54,7 @@ class GenerateReportPDF extends AbstractController
             'margin_left'=>'10',
             'margin_right'=>'10'
         ]);
+
         $html = $this->render('pdf/report.html.twig',
             [
                 'client'       => $myClient,

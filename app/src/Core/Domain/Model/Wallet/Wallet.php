@@ -43,9 +43,9 @@ class Wallet
     public function __construct(
     )
     {
-        $this->id        = uuid_create();
-        $this->updatedAt = new \DateTime();
-        $this->earnMoney = 0.0;
+        $this->id         = uuid_create();
+        $this->updatedAt  = new \DateTime();
+        $this->earnMoney  = 0.0;
     }
 
 
@@ -55,7 +55,7 @@ class Wallet
         $this->bankNumber = $managementCreate->getBankNumber();
         $this->street     = $managementCreate->getStreet();
         $this->zipCode    = $managementCreate->getZipCode();
-        $this->city       = $managementCreate->getZipCode();
+        $this->city       = $managementCreate->getCity();
         $this->updatedAt  = new \DateTime();
     }
 }

@@ -59,9 +59,9 @@ trait ClientGS
     }
 
     /**
-     * @return int
+     * @return null|string
      */
-    public function getTaxNumber(): int
+    public function getTaxNumber(): ?string
     {
         return $this->taxNumber;
     }
@@ -107,10 +107,6 @@ trait ClientGS
      */
     public function isGross(): bool
     {
-        if (!$this->gross) {
-
-            return true;
-        }
         return $this->gross;
     }
 }

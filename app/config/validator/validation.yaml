@@ -21,27 +21,6 @@ App\Core\Application\Command\Client\CreateClientDTO:
       - Length:
           min: 6
           max: 6
-    taxNumber:
-      - Length:
-          min: 10
-          max: 10
     salary:
       - PositiveOrZero: ~
-
-App\Core\Application\Command\UserManagement\UserManagementCreate:
-  properties:
-    bankName:
-      - NotBlank: ~
-    bankNumber:
-      - Length:
-          min: 26
-          max: 26
-    city:
-      - NotBlank: ~
-    street:
-      - NotBlank: ~
-    zipCode:
-      - Length:
-         min: 6
-         max: 6
 

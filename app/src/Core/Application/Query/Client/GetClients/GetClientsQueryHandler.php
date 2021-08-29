@@ -26,10 +26,6 @@ final class GetClientsQueryHandler
         $clientsData = null;
         $clients     = $this->userClients->getClients($clientsQuery->getUser());
 
-        if (!$clients) {
-            throw new EmptyClient('Users don`t have any clients');
-        }
-
         foreach ($clients as $client) {
 
             $clientsData[] = ClientDTO::fromEntity($client);

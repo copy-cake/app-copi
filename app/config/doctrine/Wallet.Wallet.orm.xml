@@ -9,14 +9,14 @@
             <generator strategy="NONE"/>
         </id>
 
-        <field name="earnMoney"  type="float" precision="10" scale="2" column="earn_money"/>
-        <field name="updatedAt" type="datetime" column="updated_at"/>
-        <field name="bankName" type="string" column="bank_name"/>
-        <field name="bankNumber" type="string" column="bank_number" length="26"/>
+        <field name="earnMoney"  type="float" precision="10" scale="2" column="earn_money" nullable="true"/>
+        <field name="updatedAt" type="datetime" column="updated_at" nullable="true"/>
+        <field name="bankName" type="string" column="bank_name" nullable="true"/>
+        <field name="bankNumber" type="string" column="bank_number" length="26" nullable="true"/>
 
-        <field name="street" type="string" column="street"/>
-        <field name="zipCode" type="string" column="zip_code" length="6"/>
-        <field name="city" type="string" column="city" length="30"/>
+        <field name="street" type="string" column="street" nullable="true"/>
+        <field name="zipCode" type="string" column="zip_code" length="6" nullable="true"/>
+        <field name="city" type="string" column="city" length="30" nullable="true"/>
 
         <one-to-one field="users" target-entity="App\Core\Domain\Model\Users\User" mapped-by="wallet">
         </one-to-one>

@@ -18,7 +18,7 @@ class WalletTask
     private $createdAt;
 
     /** @var float */
-    private $money;
+    private $money = 0.00;
 
     /** @var Collection */
     private $walletControl;

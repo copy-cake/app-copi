@@ -16,9 +16,9 @@ final class     CreateClientDTOTest
         $createClientDTO->setCity('Erebor');
         $createClientDTO->setStreet('Alone mountain');
         $createClientDTO->setSalary(12.1);
-        $createClientDTO->setTaxNumber('1234567890');
+        $createClientDTO->setTaxNumber('314091409124421');
         $createClientDTO->setZipCode('66-666');
-        $createClientDTO->setGross(true);
+        $createClientDTO->setGross(false);
 
         return $createClientDTO;
     }

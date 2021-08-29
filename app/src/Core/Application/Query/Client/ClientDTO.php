@@ -26,7 +26,7 @@ final class ClientDTO
     /** @var string */
     private $numberHouse;
 
-    /** @var string */
+    /** @var null|string */
     private $taxNumber;
 
     /** @var bool */
@@ -109,9 +109,9 @@ final class ClientDTO
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getTaxNumber(): string
+    public function getTaxNumber(): ?string
     {
         return $this->taxNumber;
     }

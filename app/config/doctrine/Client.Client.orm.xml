@@ -15,7 +15,7 @@
         <field name="street" type="string" column="street" nullable="false"/>
         <field name="zipCode" type="string" column="zipCode" nullable="false"/>
         <field name="numberHouse" type="string" column="numberHouse" nullable="false"/>
-        <field name="taxNumber" type="integer" column="tax_number" nullable="false"/>
+        <field name="taxNumber" type="string" column="tax_number" nullable="true"/>
         <field name="salary" type="float" column="salary" nullable="false"/>\
         <field name="gross" type="boolean" column="gross"/>
 

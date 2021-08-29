@@ -31,7 +31,7 @@ class Client
     /** @var string */
     private $numberHouse = 1;
 
-    /** @var int */
+    /** @var null|string */
     private $taxNumber;
 
     /** @var \DateTime */

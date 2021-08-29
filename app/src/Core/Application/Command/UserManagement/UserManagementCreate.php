@@ -5,7 +5,7 @@ namespace App\Core\Application\Command\UserManagement;
 
 final class UserManagementCreate
 {
-    /** @var string */
+    /** @var null|string */
     private $bankName;
 
     /** @var null|string */
@@ -21,17 +21,17 @@ final class UserManagementCreate
     private $city;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getBankName(): string
+    public function getBankName(): ?string
     {
         return $this->bankName;
     }
 
     /**
-     * @param string $bankName
+     * @param string|null $bankName
      */
-    public function setBankName(string $bankName): void
+    public function setBankName(?string $bankName): void
     {
         $this->bankName = $bankName;
     }

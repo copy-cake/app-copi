@@ -18,7 +18,7 @@ final class CreateClientDTO
     /** @var string */
     private $zipCode;
 
-    /** @var int */
+    /** @var null|string */
     private $taxNumber;
 
     /** @var float */
@@ -92,17 +92,17 @@ final class CreateClientDTO
     }
 
     /**
-     * @return int
+     * @return string|null
      */
-    public function getTaxNumber(): int
+    public function getTaxNumber(): ?string
     {
         return $this->taxNumber;
     }
 
     /**
-     * @param int $taxNumber
+     * @param string|null $taxNumber
      */
-    public function setTaxNumber(int $taxNumber): void
+    public function setTaxNumber(?string $taxNumber): void
     {
         $this->taxNumber = $taxNumber;
     }

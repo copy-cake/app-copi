@@ -20,6 +20,7 @@ services:
             - '../src/Core/Domain/Model/'
             - '../src/Kernel.php'
             - '../src/Tests/'
+            - '../src/Shared/Infrastructure/TwigExtension/'
 
     App\Core\Ports\Rest\:
         resource: '../src/Core/Ports/Rest/'

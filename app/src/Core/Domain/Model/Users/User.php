@@ -84,6 +84,7 @@ class User implements UserInterface
         CreateUserDTO $createUserDTO
     )
     {
+        $this->wallet    = new Wallet();
         $this->username  = $createUserDTO->getUsername();
         $this->firstName = $createUserDTO->getFirstName();
         $this->lastName  = $createUserDTO->getLastName();
