@@ -6,7 +6,6 @@ namespace App\Core\Infrastructure\Repository\Client;
 
 use App\Core\Domain\Model\Client\Client;
 use App\Core\Domain\Model\Users\User;
-use App\Shared\Domain\Exception\BadCompany;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -26,13 +25,7 @@ class ClientRepository extends ServiceEntityRepository implements MatchClientInt
 
     public function foundClient(string $idClient): Client
     {
-        $client = $this->find($idClient);
-
-        if (!$client){
-            throw new BadCompany('Company no exist.');
-        }
-
-        return $client;
+        return $this->find($idClient);
     }
 
     public function getClients(User $user): ?array

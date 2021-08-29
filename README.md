@@ -1,5 +1,13 @@
 ## copy cake app
 
+### About this app
+
+Copy Cake App was created for my girlfriend who is a copywriter. The app allows users to manage their tasks in an easy way.
+
+Copywiters can add all of tasks that have been commissioned by their clients.
+The application automatically calculates the price of the task based on the number of characters in each text written by the copywriter.
+In addition, the tool generates a simple report for a specific period that can be presented to customers in PDF format.
+
 ### Docker
 
 To run app in docker run:
@@ -19,11 +27,3 @@ After install libraries create <b>.env</b> files with config connection
 For testing app in docker run:
 
     ./vendor/bin/phpunit
-
-### About this app
-
-Copy Cake App was created for my girlfriend who is a copywriter. The app allows users to manage their tasks in an easy way.
-
-Copywiters can add all of tasks that have been commissioned by their clients. 
-The application automatically calculates the price of the task based on the number of characters in each text written by the copywriter. 
-In addition, the tool generates a simple report for a specific period that can be presented to customers in PDF format.
